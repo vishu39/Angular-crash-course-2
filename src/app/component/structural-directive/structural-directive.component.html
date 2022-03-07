@@ -1,0 +1,17 @@
+<div class="main">
+  <h1>*ngFor example</h1>
+  <div class="for" *ngFor="let data of datas">
+    <span
+      ><b>{{ data.name }}:</b></span
+    >
+    <span>{{ data.age }}</span>
+  </div>
+  <h1>*ngSwitch example</h1>
+  <div class="for" [ngSwitch]="case">
+    <span *ngSwitchCase="'one'">One is pressed</span>
+    <span *ngSwitchCase="'two'">Two is pressed</span>
+    <span *ngSwitchCase="'three'">Three is pressed</span>
+    <span *ngSwitchDefault>Default Option</span>
+  </div>
+  <button type="button" routerLink="/main">Go Back</button>
+</div>

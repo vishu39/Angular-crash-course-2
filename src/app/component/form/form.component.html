@@ -1,0 +1,63 @@
+<div class="main">
+  <div class="container">
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+      <div class="div">
+        <label class="lab">Name</label>
+        <input
+          formControlName="name"
+          [class.is-invalid]="name.invalid && name.touched"
+          class="inp"
+          type="text"
+        />
+        <div *ngIf="name.invalid && name.touched">
+          <small class="text-danger" *ngIf="name.errors?.['required']"
+            >Name is required</small
+          >
+          <small class="text-danger" *ngIf="name.errors?.['minlength']"
+            >Name must be at least 3 characters</small
+          >
+        </div>
+      </div>
+      <div class="div">
+        <label class="lab">Age</label>
+        <input
+          [class.is-invalid]="age.invalid && age.touched"
+          formControlName="age"
+          class="inp"
+          type="number"
+        />
+        <div *ngIf="age.invalid && age.touched">
+          <small class="text-danger" *ngIf="age.errors?.['required']"
+            >Age is required</small
+          >
+        </div>
+      </div>
+      <div class="div">
+        <label class="lab">Profession</label>
+        <select formControlName="profession" class="inp">
+          <option>Doctor</option>
+          <option>Engineer</option>
+          <option>Anything</option>
+        </select>
+        <div *ngIf="profession.invalid && profession.touched">
+          <small class="text-danger" *ngIf="profession.errors?.['required']"
+            >Profession is required</small
+          >
+        </div>
+      </div>
+      <div class="div">
+        <input formControlName="check" type="checkbox" />
+        <label class="lab">Agree Terms and conditions</label>
+        <div *ngIf="check.invalid && check.touched">
+          <small class="text-danger" *ngIf="check.errors?.['required']"
+            >Checkbox is required</small
+          >
+        </div>
+      </div>
+      <button class="btn" [disabled]="!reactiveForm.valid" type="submit">
+        Submit
+      </button>
+    </form>
+    <button type="button" class="btn" routerLink="/main">Go Back</button>
+  </div>
+</div>
