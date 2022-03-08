@@ -1,2 +1,13 @@
-<button type="button" (click)="fetch()">fetch</button>
-<button type="button" class="btn" routerLink="/main">Go Back</button>
+<div>
+  <div *ngFor="let data of datas">
+    <table [cellSpacing]="1" border="1">
+      <tr>
+        <td>{{ data.id }}</td>
+        <td>{{ data.albumId }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{ data.thumbnailUrl }}</td>
+      </tr>
+    </table>
+  </div>
+  <button type="button" class="btn" routerLink="/main">Go Back</button>
+</div>
